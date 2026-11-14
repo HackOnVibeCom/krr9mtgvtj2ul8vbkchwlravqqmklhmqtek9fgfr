@@ -1,0 +1,83 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+# The example carries no values, and SETUP.md tells you to copy it.
+!.env.example
+!learis/agent/.env.example
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+__pycache__/
+# The agent service's virtualenv (ENV.md, Run it locally).
+.venv/
+*.pyc
+.env
+learis/agent/.env
+learis/agent/data/
+
+# Hackathon service keys. Fetched from the keybroker, never committed.
+learis/agent/.secrets/
+
+# Any secrets bundle, anywhere. A zip is the shape secrets travel in when
+# somebody is sharing them, and the one that slips past a rule written for
+# .env files. secrets.zip was sitting untracked in the root on 15 Oct 2026,
+# one `git add -A` away from being published.
+secrets.zip
+*secrets*.zip
+*.secrets.zip
+secrets/
+
+# CLI debug dumps. They can carry credentials.
+learis/agent/debug-*.json
+
+# Source artwork for the brand mark. The traced SVGs are committed in public/logo/; the
+# original upload stays out of the repo.
+socrates-logo.zip
+
+/data/
+*.db
+.codegraph/
+
+# Kira's rule pack: contract terms and supplier certificates, per installation.
+# The format and an example are committed beside it (learis/references/).
+learis/references/rule-pack.json
+
+# A local run of main.py writes its trace here (its documented --out default).
+# Nothing in the app reads the file — the UI fetches traces from GET /runs/{id}/trace —
+# so it is a run artifact, not a fixture.
+app/learis/trace.json
